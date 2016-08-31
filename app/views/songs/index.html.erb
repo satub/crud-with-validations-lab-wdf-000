@@ -1,0 +1,16 @@
+<table>
+  <% @songs.each do |song| %>
+  <tr>
+    <td><%= link_to song.title, song_path(song) %></td>
+    <td><%= song.artist_name %></td>
+    <td><%= song.genre%></td>
+    <%if song.released%>
+      <td><%= song.release_year%></td>
+    <%else%>
+      <td>Not released</td>
+    <%end%>
+    <td> <%= link_to "Delete", song_path(song), method: :delete, data: { confirm: "Really?" } %></td>
+  </tr>
+  <% end %>
+
+</table>
